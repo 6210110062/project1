@@ -5,5 +5,3 @@ def fizzbuzz(num):
         return 'Buzz'
     elif num % 3 == 0:
         return 'Fizz'
-    else:
-        return 'is not FizzBuzz'

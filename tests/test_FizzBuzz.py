@@ -32,3 +32,8 @@ class primelisttest(unittest.TestCase):
         num = 225
         result = fizzbuzz(num)
         self.assertEqual(result, 'FizzBuzz')
+
+    def test_give_negative_5_is_fizzbuzz(self):
+        num = -5
+        result = fizzbuzz(num)
+        self.assertEqual(result, 'Buzz')
