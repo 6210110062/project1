@@ -34,14 +34,8 @@ class TwoCharactersTest(unittest.TestCase):
         expected_output = 0
         self.assertEqual(result, expected_output)
 
-    def test_give_abcddefgfgukvsa_is_0(self):
-        text = "abcddefgfgukvsa"
+    def test_give_aa_is_0(self):
+        text = "aa"
         result = two_characters(text)
         expected_output = 0
-        self.assertEqual(result, expected_output)
-
-    def test_lbvydknuamcxra_is_false(self):
-        text = "lbvydknuamcxra"
-        result = two_characters(text)
-        expected_output = "Index out of range"
         self.assertEqual(result, expected_output)
