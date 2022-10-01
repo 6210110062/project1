@@ -3,7 +3,7 @@ from hackerrank.caesar_cipher import caesarcipher
 import unittest
 
 
-class CaesarCipherTest(unittest.TestCase):
+class CaesarcipherTest(unittest.TestCase):
     def test_give_Hello_World_and_4_for_test(self):
         s = "Hello_World!"
         k = 4
