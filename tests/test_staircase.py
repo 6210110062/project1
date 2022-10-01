@@ -1,103 +1,95 @@
-from Staircase.Staircase import staircase
+from Staircase.Staircase import stair_case
 import unittest
 
 
-class Test_Staircase(unittest.TestCase):
-    def test_give_2_with_hash_should_be_hh(self):
-        n = 2
-        pattern = "#"
-        expected_output = \
-            " #\n" + \
-            "##"
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output,
-                         f'Should be {expected_output}')
-
-    def test_give_3_with_star_should_be_hh(self):
+class PatternTest(unittest.TestCase):
+    def test_give_3_with_hash_should_be_hh(self):
         n = 3
+        pattern = "#"
+        expected_output = \
+            "  #\n" + \
+            " ##\n" + \
+            "###"
+        result = stair_case(n, pattern)
+        self.assertEqual(result, expected_output,
+                         f'Should be {expected_output}')
+
+    def test_give_5_with_star_should_be_hh(self):
+        n = 5
         pattern = "*"
         expected_output = \
-            "  *\n" + \
-            " **\n" + \
-            "***"
-        result = staircase(n, pattern)
+            "    *\n" + \
+            "   **\n" + \
+            "  ***\n" + \
+            " ****\n" + \
+            "*****"
+        result = stair_case(n, pattern)
         self.assertEqual(result, expected_output,
                          f'Should be {expected_output}')
 
-    def test_give_3_with_star_should_be_hh(self):
-        n = 10
-        pattern = "+"
+    def test_give_negative_3_with_hash_should_be_hh(self):
+        n = -3
+        pattern = "#"
         expected_output = \
-            "         +\n" + \
-            "        ++\n" + \
-            "       +++\n" + \
-            "      ++++\n" + \
-            "     +++++\n" + \
-            "    ++++++\n" + \
-            "   +++++++\n" + \
-            "  ++++++++\n" + \
-            " +++++++++\n" + \
-            "++++++++++"
-        result = staircase(n, pattern)
+            False
+        result = stair_case(n, pattern)
         self.assertEqual(result, expected_output,
                          f'Should be {expected_output}')
 
-    def test_give_3_with_star_should_be_hh(self):
-        n = 12
-        pattern = "@"
+    def test_give_float_5_with_star_should_be_hh(self):
+        n = 5.67
+        pattern = "*"
         expected_output = \
-            "           @\n" + \
-            "          @@\n" + \
-            "         @@@\n" + \
-            "        @@@@\n" + \
-            "       @@@@@\n" + \
-            "      @@@@@@\n" + \
-            "     @@@@@@@\n" + \
-            "    @@@@@@@@\n" + \
-            "   @@@@@@@@@\n" + \
-            "  @@@@@@@@@@\n" + \
-            " @@@@@@@@@@@\n" + \
-            "@@@@@@@@@@@@"
-        result = staircase(n, pattern)
+            False
+        result = stair_case(n, pattern)
         self.assertEqual(result, expected_output,
                          f'Should be {expected_output}')
 
-    def test_give_35_with_hash_should_be_error(self):
-        n = 35
+    def test_give_3_with_o_should_be_hh(self):
+        n = 4
+        pattern = " "
+        expected_output = \
+            "    \n" + \
+            "    \n" + \
+            "    \n" + \
+            "    "
+
+        result = stair_case(n, pattern)
+        self.assertEqual(result, expected_output,
+                         f'Should be {expected_output}')
+
+    def test_give_3_with_space_should_be_hh(self):
+        n = 3
+        pattern = " "
+        expected_output = \
+            "   \n" + "   \n" + "   "
+        result = stair_case(n, pattern)
+        self.assertEqual(result, expected_output,
+                         f'Should be {expected_output}')
+
+    def test_give_40_with_hash_should_be_hh(self):
+        n = 40
         pattern = "#"
-        expected_output = 'n must between 1-30'
-        result = staircase(n, pattern)
+        expected_output = \
+            False
+        result = stair_case(n, pattern)
         self.assertEqual(result, expected_output,
                          f'Should be {expected_output}')
 
-    def test_give_negative_20_with_hash_should_be_error(self):
-        n = -20
-        pattern = "#"
-        expected_output = 'n must between 1-30'
-        result = staircase(n, pattern)
+    def test_give_negative_float_50_with_star_should_be_hh(self):
+        n = -50.51
+        pattern = "*"
+        expected_output = \
+            False
+        result = stair_case(n, pattern)
         self.assertEqual(result, expected_output,
                          f'Should be {expected_output}')
 
-    def test_give_negative_200_with_hash_should_be_error(self):
-        n = -200
-        pattern = "#"
-        expected_output = 'n must between 1-30'
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output,
-                         f'Should be {expected_output}')
-
-    def test_give_1000_with_A_should_be_error(self):
-        n = 1000
-        pattern = "A"
-        expected_output = 'n must between 1-30'
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output,
-                         f'Should be {expected_output}')
-
-    def test_give_negative_0_with_star_should_be_error(self):
+    def test_give_0_with_hash_should_be_hh(self):
         n = 0
-        pattern = "*"
-        expected_output = 'n must between 1-30'
-        result = staircase(n, pattern)
-        self.assertEqual(result, expected_output,
-                         f'Should be {expected_output}')
+        pattern = "#"
+        expected_output = \
+            "#"
+        result = stair_case(n, pattern)
+        self.assertNotEqual(result, expected_output,
+                            f'Should be {expected_output}')
